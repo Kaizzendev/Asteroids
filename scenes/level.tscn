@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://bc3gdbu5q5k11"]
+
+[ext_resource type="PackedScene" uid="uid://degxe0a72myu6" path="res://scenes/player.tscn" id="1_t3ftg"]
+[ext_resource type="PackedScene" uid="uid://cnip8o524vhuu" path="res://asteroids/asteroid_generator.tscn" id="2_ghntc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_72whe"]
+size = Vector2(1152, 21)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wcm6f"]
+size = Vector2(20, 648)
+
+[node name="Level" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_t3ftg")]
+position = Vector2(383, 219)
+
+[node name="AsteroidGenerator" parent="." instance=ExtResource("2_ghntc")]
+position = Vector2(552, -154)
+
+[node name="Down" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 9
+
+[node name="DownBorder" type="CollisionShape2D" parent="Down"]
+position = Vector2(576, 668)
+shape = SubResource("RectangleShape2D_72whe")
+
+[node name="Up" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 9
+
+[node name="UpBorder" type="CollisionShape2D" parent="Up"]
+position = Vector2(576, -20.5)
+shape = SubResource("RectangleShape2D_72whe")
+
+[node name="Right" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 9
+
+[node name="RightBorder" type="CollisionShape2D" parent="Right"]
+position = Vector2(1171, 324)
+shape = SubResource("RectangleShape2D_wcm6f")
+
+[node name="Left" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 9
+
+[node name="LeftBorder" type="CollisionShape2D" parent="Left"]
+position = Vector2(-19, 324)
+shape = SubResource("RectangleShape2D_wcm6f")

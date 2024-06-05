@@ -1,0 +1,79 @@
+[gd_scene load_steps=11 format=3 uid="uid://degxe0a72myu6"]
+
+[ext_resource type="Script" path="res://scripts/player.gd" id="1_kulop"]
+[ext_resource type="Texture2D" uid="uid://c3n6ufcxlfn8c" path="res://player/ship.png" id="2_sqe4f"]
+[ext_resource type="Texture2D" uid="uid://bsudgewq1djlo" path="res://player/ship_throtle_anim-Sheet-Sheet.png" id="3_7eiv2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ise0"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_87ddi"]
+size = Vector2(10.5, 12.4063)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0wrj0"]
+atlas = ExtResource("3_7eiv2")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5gmwf"]
+atlas = ExtResource("3_7eiv2")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4i18"]
+atlas = ExtResource("3_7eiv2")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qeec4"]
+atlas = ExtResource("3_7eiv2")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k5e7e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0wrj0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5gmwf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4i18")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qeec4")
+}],
+"loop": true,
+"name": &"gas",
+"speed": 16.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+texture_filter = 1
+position = Vector2(146, 67)
+collision_mask = 6
+motion_mode = 1
+script = ExtResource("1_kulop")
+speed = null
+rotation_speed = null
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_sqe4f")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_3ise0")
+debug_color = Color(0.941176, 0, 0.611765, 0.419608)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_87ddi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(0, 8)
+sprite_frames = SubResource("SpriteFrames_k5e7e")
+animation = &"gas"
+autoplay = "gas"
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
