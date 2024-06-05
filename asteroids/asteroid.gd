@@ -19,13 +19,16 @@ func _ready():
 		random_rotation_direction = 1
 	elif random_rotation_number <= 0.5:
 		random_rotation_direction = -1
-	speed = randf_range(50,200)
+	speed = randf_range(50,100)
 	rotation_speed = randf_range(0.1,0.3)
 
 func _physics_process(delta):
 	sprite_2d.rotate(rotation_speed * random_rotation_direction)
 	move_local_x(delta * random_rotation_direction * speed)
-	move_local_y(delta * 1 * speed)
+	if move_upwards:
+		move_local_y(delta * 1 * speed)
+	elif !move_upwards:
+		move_local_y(delta * -1 * speed)
 	
 func _on_area_2d_area_entered(area):
 	var new_position : Vector2
@@ -50,6 +53,7 @@ func teleport_to(new_position : Vector2):
 
 
 func destroy():
+	ScoreManager.give_score_amount(score)
 	generate_child_asteroids()
 	queue_free()
 	

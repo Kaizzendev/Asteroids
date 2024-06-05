@@ -9,7 +9,7 @@ func _ready():
 	loadAsteroids()
 	for x in 100:
 		generateRandomAsteroid()
-		await get_tree().create_timer(1.0).timeout
+		await get_tree().create_timer(3.0).timeout
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	pass
@@ -26,5 +26,9 @@ func loadAsteroids():
 func generateRandomAsteroid():
 	var asteroid_instance = asteroids.pick_random().instantiate() as Node2D
 	asteroid_instance.global_position = position
+	if position.y > 0:
+		asteroid_instance.move_upwards = false
+	elif position.y < 0:
+		asteroid_instance.move_upwards = true
 	get_parent().add_child.call_deferred(asteroid_instance)
 
