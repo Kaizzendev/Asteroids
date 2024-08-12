@@ -1,6 +1,8 @@
 extends CharacterBody2D
 @onready var marker_2d = $Marker2D
 
+@onready var audio_stream_player_2d = $AudioStreamPlayer2D
+
 @export var speed: int = 200
 @export var rotation_speed: int = 200
 var direction = Vector2.ZERO
@@ -48,6 +50,7 @@ func shoot():
 		bullet_instance.global_position = marker_2d.global_position
 		bullet_instance.direction = bullet_direction.normalized()
 		get_parent().add_child(bullet_instance)
+		audio_stream_player_2d.play()
 		
 		
 func input_movement() -> float: 
@@ -70,6 +73,11 @@ func _on_area_2d_area_entered(area):
 		"Right":
 			new_position = Vector2(7,position.y)
 			teleport_to(new_position)
+		"Asteroid":
+			death()
 			
 func teleport_to(new_position : Vector2):
 		position = new_position
+		
+func death():
+	print("DEATH")

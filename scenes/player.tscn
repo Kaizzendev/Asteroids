@@ -3,12 +3,10 @@
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_kulop"]
 [ext_resource type="Texture2D" uid="uid://c3n6ufcxlfn8c" path="res://player/ship.png" id="2_sqe4f"]
 [ext_resource type="Texture2D" uid="uid://bsudgewq1djlo" path="res://player/ship_throtle_anim-Sheet-Sheet.png" id="3_7eiv2"]
+[ext_resource type="AudioStream" uid="uid://duux335go74qh" path="res://audio/96692__cgeffex__asteroids-ship-fire.wav" id="4_kc8co"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3ise0"]
 size = Vector2(16, 16)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_87ddi"]
-size = Vector2(10.5, 12.4063)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0wrj0"]
 atlas = ExtResource("3_7eiv2")
@@ -57,15 +55,11 @@ script = ExtResource("1_kulop")
 texture = ExtResource("2_sqe4f")
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_mask = 4
+collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_3ise0")
 debug_color = Color(0.941176, 0, 0.611765, 0.419608)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_87ddi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -76,5 +70,8 @@ autoplay = "gas"
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(0, -11)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_kc8co")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
