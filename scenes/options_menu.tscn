@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://cm8e8477qr6iy"]
+[gd_scene load_steps=2 format=3 uid="uid://cgufcylut0u6j"]
 
-[ext_resource type="Script" path="res://MenuMananager.gd" id="1_1bdy8"]
+[ext_resource type="Script" path="res://scripts/options_menu.gd" id="1_d8hgq"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -9,7 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_1bdy8")
+script = ExtResource("1_d8hgq")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(200, 0)
@@ -30,14 +30,9 @@ layout_mode = 2
 layout_mode = 2
 text = "Play	"
 
-[node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Options"
-
-[node name="Exit" type="Button" parent="MarginContainer/VBoxContainer"]
-layout_mode = 2
-text = "Exit"
+text = "Back"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]

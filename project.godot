@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="Asteroids"
-run/main_scene="res://scenes/level.tscn"
+run/main_scene="res://scenes/menu.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
 ScoreManager="*res://scripts/ScoreManager.gd"
+AudioController="*res://scenes/audio_controller.tscn"
 
 [input]
 

@@ -1,7 +1,8 @@
 extends CharacterBody2D
 @onready var marker_2d = $Marker2D
+@onready var fire_sound = $FireSound
 
-@onready var audio_stream_player_2d = $AudioStreamPlayer2D
+@onready var thrust_sound = $ThrustSound
 
 @export var speed: int = 200
 @export var rotation_speed: int = 200
@@ -37,6 +38,7 @@ func impulse_player(delta):
 		current_state = State.Thrust
 		animated_sprite_2d.show()
 		animated_sprite_2d.play("gas")
+		thrust_sound.play()
 	else:
 		animated_sprite_2d.stop()
 		animated_sprite_2d.hide()
@@ -50,7 +52,7 @@ func shoot():
 		bullet_instance.global_position = marker_2d.global_position
 		bullet_instance.direction = bullet_direction.normalized()
 		get_parent().add_child(bullet_instance)
-		audio_stream_player_2d.play()
+		fire_sound.play()
 		
 		
 func input_movement() -> float: 

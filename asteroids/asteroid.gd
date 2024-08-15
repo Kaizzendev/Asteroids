@@ -57,6 +57,7 @@ func destroy():
 	generate_child_asteroids()
 	queue_free()
 	
+	
 func generate_child_asteroids():
 	pass
 		

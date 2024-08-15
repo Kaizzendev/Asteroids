@@ -1,5 +1,6 @@
 extends Asteroid
 const ASTEROID_SMALL = preload("res://asteroids/asteroid_small.tscn")
+
 func _ready():
 	super()
 	current_type = Type.Small
@@ -21,3 +22,6 @@ func generate_child_asteroids():
 			new_asteroid_instance.global_position = position 
 			get_parent().add_child.call_deferred(new_asteroid_instance)
 		
+func destroy():
+	AudioController.play_med_crash()
+	super()

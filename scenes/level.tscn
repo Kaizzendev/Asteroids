@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://bc3gdbu5q5k11"]
 
-[ext_resource type="PackedScene" uid="uid://c2wypuoxl464u" path="res://scripts/controlScore.tscn" id="1_27wjj"]
+[ext_resource type="PackedScene" uid="uid://c2wypuoxl464u" path="res://scenes/controlScore.tscn" id="1_27wjj"]
 [ext_resource type="PackedScene" uid="uid://degxe0a72myu6" path="res://scenes/player.tscn" id="1_t3ftg"]
 [ext_resource type="PackedScene" uid="uid://cnip8o524vhuu" path="res://asteroids/asteroid_generator.tscn" id="2_ghntc"]
 
