@@ -1,21 +1,25 @@
-[gd_scene load_steps=6 format=3 uid="uid://bc3gdbu5q5k11"]
+[gd_scene load_steps=8 format=3 uid="uid://bc3gdbu5q5k11"]
 
 [ext_resource type="PackedScene" uid="uid://c2wypuoxl464u" path="res://scenes/controlScore.tscn" id="1_27wjj"]
 [ext_resource type="PackedScene" uid="uid://degxe0a72myu6" path="res://scenes/player.tscn" id="1_t3ftg"]
 [ext_resource type="PackedScene" uid="uid://cnip8o524vhuu" path="res://asteroids/asteroid_generator.tscn" id="2_ghntc"]
+[ext_resource type="PackedScene" uid="uid://d4mppqdw4dp3m" path="res://scenes/ufo_generator.tscn" id="5_ygk7n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_72whe"]
-size = Vector2(2509, 35.5)
+size = Vector2(2509, 15.75)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wcm6f"]
-size = Vector2(43, 937)
+size = Vector2(8.5, 937)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_apxy0"]
+size = Vector2(19, 760)
 
 [node name="Level" type="Node2D"]
 
 [node name="Control" parent="." instance=ExtResource("1_27wjj")]
 
 [node name="Player" parent="." instance=ExtResource("1_t3ftg")]
-position = Vector2(383, 219)
+position = Vector2(573, 328)
 
 [node name="AsteroidGenerator" parent="." instance=ExtResource("2_ghntc")]
 position = Vector2(579, -91)
@@ -30,7 +34,7 @@ collision_layer = 4
 collision_mask = 9
 
 [node name="DownBorder" type="CollisionShape2D" parent="Player borders/Down"]
-position = Vector2(576, 668)
+position = Vector2(576, 658.125)
 shape = SubResource("RectangleShape2D_72whe")
 
 [node name="Up" type="Area2D" parent="Player borders"]
@@ -46,7 +50,7 @@ collision_layer = 4
 collision_mask = 9
 
 [node name="RightBorder" type="CollisionShape2D" parent="Player borders/Right"]
-position = Vector2(1171, 324)
+position = Vector2(1153.75, 324)
 shape = SubResource("RectangleShape2D_wcm6f")
 
 [node name="Left" type="Area2D" parent="Player borders"]
@@ -90,3 +94,14 @@ collision_mask = 2
 [node name="LeftBorder" type="CollisionShape2D" parent="Asteroids borders/Left"]
 position = Vector2(-516.5, 312.5)
 shape = SubResource("RectangleShape2D_wcm6f")
+
+[node name="UfoGenerator" parent="." instance=ExtResource("5_ygk7n")]
+position = Vector2(-103, 141)
+
+[node name="Ufo_despawn" type="Area2D" parent="."]
+position = Vector2(1342, 264)
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ufo_despawn"]
+position = Vector2(-112.5, 39)
+shape = SubResource("RectangleShape2D_apxy0")

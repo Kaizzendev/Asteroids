@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 ScoreManager="*res://scripts/ScoreManager.gd"
 AudioController="*res://scenes/audio_controller.tscn"
+GameManager="*res://scripts/GameManager.gd"
 
 [input]
 
@@ -47,6 +48,11 @@ interact={
 "events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"echo":false,"script":null)
 ]
 }
+pause={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":4194305,"key_label":0,"unicode":0,"echo":false,"script":null)
+]
+}
 
 [layer_names]
 
@@ -55,6 +61,7 @@ interact={
 2d_physics/layer_3="BORDER"
 2d_physics/layer_4="BULLET"
 2d_physics/layer_5="ASTEROIDS BORDER"
+2d_physics/layer_6="UFO"
 
 [rendering]
 

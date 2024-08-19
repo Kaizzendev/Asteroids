@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4mppqdw4dp3m"]
+
+[ext_resource type="Script" path="res://scripts/ufo_generator.gd" id="1_uuq3q"]
+
+[node name="UfoGenerator" type="Node2D"]
+script = ExtResource("1_uuq3q")

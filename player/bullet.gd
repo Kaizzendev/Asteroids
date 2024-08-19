@@ -33,6 +33,10 @@ func _on_area_2d_area_entered(area : Area2D):
 			teleport_to(new_position)
 		"Asteroid":
 			queue_free()
+		"Ufo":
+			queue_free()
+		"Player":
+			queue_free()
 			
 func teleport_to(new_position : Vector2):
 		position = new_position

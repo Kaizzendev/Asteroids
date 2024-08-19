@@ -1,20 +1,19 @@
 extends CharacterBody2D
 @onready var marker_2d = $Marker2D
-@onready var fire_sound = $FireSound
-
-@onready var thrust_sound = $ThrustSound
 
 @export var speed: int = 200
 @export var rotation_speed: int = 200
 var direction = Vector2.ZERO
-
+var bullet_cap = []
 @onready var animated_sprite_2d = $AnimatedSprite2D
 const BULLET = preload("res://player/bullet.tscn")
 enum State { Rotate, Thrust, Idle, Shoot}
 var current_state : State
 var thrust = Vector2.ZERO
+
 func _ready():
 	current_state = State.Idle
+	ScoreManager.give_score_amount(ScoreManager.total_score)
 	
 func _physics_process(delta: float):
 	rotate_player(delta)
@@ -38,21 +37,25 @@ func impulse_player(delta):
 		current_state = State.Thrust
 		animated_sprite_2d.show()
 		animated_sprite_2d.play("gas")
-		thrust_sound.play()
+		AudioController.play_throtle()
 	else:
 		animated_sprite_2d.stop()
 		animated_sprite_2d.hide()
 		
 func shoot():
 	if Input.is_action_just_pressed("interact"):
-		current_state = State.Shoot
-		var bullet_instance = BULLET.instantiate() as Node2D
-		var bullet_direction : Vector2 = marker_2d.global_position - global_position
-		print(bullet_direction)
-		bullet_instance.global_position = marker_2d.global_position
-		bullet_instance.direction = bullet_direction.normalized()
-		get_parent().add_child(bullet_instance)
-		fire_sound.play()
+		if(bullet_cap.size() == 4):
+			await get_tree().create_timer(0.1).timeout
+			bullet_cap.clear()
+		else:
+			current_state = State.Shoot
+			var bullet_instance = BULLET.instantiate() as Node2D
+			bullet_cap.append(bullet_instance)
+			var bullet_direction : Vector2 = marker_2d.global_position - global_position
+			bullet_instance.global_position = marker_2d.global_position
+			bullet_instance.direction = bullet_direction.normalized()
+			get_parent().add_child(bullet_instance)
+			AudioController.play_shoot_bullet()
 		
 		
 func input_movement() -> float: 
@@ -77,9 +80,21 @@ func _on_area_2d_area_entered(area):
 			teleport_to(new_position)
 		"Asteroid":
 			death()
+		"Bullet":
+			death()
 			
 func teleport_to(new_position : Vector2):
 		position = new_position
 		
 func death():
-	print("DEATH")
+
+	if(GameManager.lives <= 0):
+		GameManager.lives = 3
+		get_tree().change_scene_to_file("res://scenes/death_screen.tscn")
+	else:
+		GameManager.lives  -= 1
+		get_tree().change_scene_to_file("res://scenes/level.tscn")
+	AudioController.stop_big_ufo()
+	AudioController.stop_mini_ufo()
+	
+	

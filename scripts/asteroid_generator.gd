@@ -7,7 +7,7 @@ const ASTEROID_BIG_3 = preload("res://asteroids/asteroid_big_3.tscn")
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	loadAsteroids()
-	for x in 100:
+	for x in 1000:
 		generateRandomAsteroid()
 		await get_tree().create_timer(3.0).timeout
 # Called every frame. 'delta' is the elapsed time since the previous frame.

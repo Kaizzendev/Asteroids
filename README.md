@@ -12,3 +12,5 @@ I'm not a big fan of this game but i consider it a good learning tool for game d
 You can play it in Itch.io or you can download it and play it 
 
 TY 
+
+### Consider it may have some bugs 
