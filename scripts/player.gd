@@ -54,6 +54,7 @@ func shoot():
 			var bullet_direction : Vector2 = marker_2d.global_position - global_position
 			bullet_instance.global_position = marker_2d.global_position
 			bullet_instance.direction = bullet_direction.normalized()
+			bullet_instance.speed_boost = velocity.length()
 			get_parent().add_child(bullet_instance)
 			AudioController.play_shoot_bullet()
 		

@@ -1,7 +1,7 @@
 extends Node2D
 var direction : Vector2
-@export var speed : int = 500
-
+@export var speed : int = 400
+var speed_boost : int 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -13,7 +13,7 @@ func _process(delta):
 	pass
 	
 func _physics_process(delta):
-	position += direction * speed * delta
+	position += direction * (speed_boost + speed)  * delta
 	destroy_bullet()
 
 func _on_area_2d_area_entered(area : Area2D):
@@ -42,5 +42,5 @@ func teleport_to(new_position : Vector2):
 		position = new_position
 		
 func destroy_bullet():
-		await get_tree().create_timer(1.0).timeout
+		await get_tree().create_timer(0.7).timeout
 		queue_free()
