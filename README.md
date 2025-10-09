@@ -10,7 +10,7 @@ I've tried to do a lot of ambitious projects but they get never finished so I de
 I'm not a big fan of this game but i consider it a good learning tool for game development so... I hope it's enough good for you!
 
 You can play it in Itch.io or you can download it and play it 
-https://kaiizzen.itch.io/asteroids
+[https://kaiizzen.itch.io/asteroids](https://kaizzendev.itch.io/asteroids)
 
 TY 
 
