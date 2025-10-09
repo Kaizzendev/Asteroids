@@ -31,4 +31,3 @@ func generateRandomAsteroid():
 	elif position.y < 0:
 		asteroid_instance.move_upwards = true
 	get_parent().add_child.call_deferred(asteroid_instance)
-

@@ -34,4 +34,3 @@ func play_mini_ufo():
 	
 func stop_mini_ufo():
 	mini_ufo.stop()
-

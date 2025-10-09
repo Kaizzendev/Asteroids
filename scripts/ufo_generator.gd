@@ -31,5 +31,3 @@ func positionUfo(ufo : Node2D):
 	else:
 		ufo.global_position = Vector2(position.x, 530)
 	get_parent().add_child.call_deferred(ufo)
-
-

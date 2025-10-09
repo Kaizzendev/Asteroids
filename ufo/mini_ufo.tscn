@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bdv6cwg24smto"]
 
-[ext_resource type="Script" path="res://ufo/mini_ufo.gd" id="1_insly"]
+[ext_resource type="Script" uid="uid://k4drxdht0waq" path="res://ufo/mini_ufo.gd" id="1_insly"]
 [ext_resource type="Texture2D" uid="uid://dgq7cjyeegfs1" path="res://ufo/ufo.png" id="2_moi5c"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5kh53"]
