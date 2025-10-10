@@ -2,7 +2,7 @@ extends Ufo
 
 @onready var marker_2d = $Marker2D
 var is_shooting : bool = false
-const BULLET = preload("res://player/bullet.tscn")
+const BULLET = preload("res://player/ufo_bullet.tscn")
 @onready var player = $"../Player"
 
 func _ready():

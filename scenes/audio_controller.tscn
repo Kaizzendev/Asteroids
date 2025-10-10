@@ -34,6 +34,8 @@ volume_db = -28.108
 
 [node name="BigUfo" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_anrqm")
+volume_db = -25.0
 
 [node name="MiniUfo" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_r2ijx")
+volume_db = -25.0

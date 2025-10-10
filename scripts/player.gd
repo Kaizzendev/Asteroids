@@ -83,6 +83,8 @@ func _on_area_2d_area_entered(area):
 			death()
 		"Bullet":
 			death()
+		"Ufo":
+			death()
 			
 func teleport_to(new_position : Vector2):
 		position = new_position
