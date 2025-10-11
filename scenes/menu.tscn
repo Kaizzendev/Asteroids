@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cm8e8477qr6iy"]
+[gd_scene load_steps=5 format=3 uid="uid://cm8e8477qr6iy"]
 
 [ext_resource type="Script" uid="uid://ckrf57dar1yvv" path="res://scripts/MenuMananager.gd" id="1_lkg2f"]
 [ext_resource type="PackedScene" uid="uid://cnip8o524vhuu" path="res://asteroids/asteroid_generator.tscn" id="2_25n6j"]
+[ext_resource type="PackedScene" uid="uid://h5vf6tp6oya5" path="res://scenes/background.tscn" id="3_con2f"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_j3ehv"]
 font_size = 70
@@ -83,6 +84,8 @@ grow_vertical = 0
 [node name="Label" type="Label" parent="MarginContainer3"]
 layout_mode = 2
 text = "BY: Miguel García (Garmii)"
+
+[node name="Background" parent="." instance=ExtResource("3_con2f")]
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]

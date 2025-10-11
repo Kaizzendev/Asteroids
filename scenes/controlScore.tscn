@@ -14,8 +14,10 @@ script = ExtResource("1_u6eou")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
-offset_right = 156.0
-offset_bottom = 143.0
+offset_left = -84.12
+offset_top = -86.245
+offset_right = 71.88
+offset_bottom = 56.755
 theme_override_constants/margin_left = 100
 theme_override_constants/margin_top = 100
 metadata/_edit_use_anchors_ = true
@@ -25,7 +27,7 @@ layout_mode = 2
 
 [node name="ScoreLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "points"
+text = "Score"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

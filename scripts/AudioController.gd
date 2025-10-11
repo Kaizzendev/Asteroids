@@ -7,6 +7,8 @@ extends Node2D
 @onready var throtle = $Throtle
 @onready var big_ufo = $BigUfo
 @onready var mini_ufo = $MiniUfo
+@onready var die_ufo =  $DieUfo
+@onready var player_die = $PlayerDie
 
 func play_big_crash():
 	crash_1.play() 
@@ -34,3 +36,9 @@ func play_mini_ufo():
 	
 func stop_mini_ufo():
 	mini_ufo.stop()
+	
+func play_die_ufo():
+	die_ufo.play()
+	
+func play_player_die():
+	player_die.play()

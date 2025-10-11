@@ -2,7 +2,7 @@ extends Node2D
 var direction : Vector2
 @export var speed : int = 400
 var speed_boost : int 
-
+var bullet_lifetime: float = 0.9
 func _physics_process(delta):
 	position += direction * (speed_boost + speed)  * delta
 	destroy_bullet()
@@ -29,5 +29,5 @@ func teleport_to(new_position : Vector2):
 		position = new_position
 		
 func destroy_bullet():
-		await get_tree().create_timer(0.7).timeout
+		await get_tree().create_timer(bullet_lifetime).timeout
 		queue_free()

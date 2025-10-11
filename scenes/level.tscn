@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://bc3gdbu5q5k11"]
+[gd_scene load_steps=9 format=3 uid="uid://bc3gdbu5q5k11"]
 
 [ext_resource type="PackedScene" uid="uid://c2wypuoxl464u" path="res://scenes/controlScore.tscn" id="1_27wjj"]
 [ext_resource type="PackedScene" uid="uid://degxe0a72myu6" path="res://scenes/player.tscn" id="1_t3ftg"]
 [ext_resource type="PackedScene" uid="uid://cnip8o524vhuu" path="res://asteroids/asteroid_generator.tscn" id="2_ghntc"]
+[ext_resource type="PackedScene" uid="uid://h5vf6tp6oya5" path="res://scenes/background.tscn" id="5_ppgk2"]
 [ext_resource type="PackedScene" uid="uid://d4mppqdw4dp3m" path="res://scenes/ufo_generator.tscn" id="5_ygk7n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_72whe"]
@@ -105,3 +106,5 @@ collision_mask = 32
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ufo_despawn"]
 position = Vector2(-112.5, 39)
 shape = SubResource("RectangleShape2D_apxy0")
+
+[node name="Background" parent="." instance=ExtResource("5_ppgk2")]

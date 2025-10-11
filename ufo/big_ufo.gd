@@ -39,6 +39,7 @@ func shoot():
 	var bullet_direction : Vector2 = player.global_position - marker_2d.global_position
 	bullet_instance.global_position = marker_2d.global_position
 	bullet_instance.direction = bullet_direction.normalized()
+	bullet_instance.bullet_lifetime = 1.4
 	get_parent().add_child(bullet_instance)
 	AudioController.play_shoot_bullet()
 	

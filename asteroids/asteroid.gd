@@ -7,7 +7,7 @@ var move_upwards : bool
 enum Type {Big,Med,Small}
 var current_type : Type
 var score : int 
-
+const EXPLOSION = preload("res://scenes/explosion.tscn")
 var random_x_direction: float
 
 var random_rotation_number : float
@@ -54,6 +54,9 @@ func teleport_to(new_position : Vector2):
 
 func destroy():
 	ScoreManager.give_score_amount(score)
+	var explosion = EXPLOSION.instantiate() as Node2D
+	explosion.position = position
+	get_parent().add_child(explosion)
 	generate_child_asteroids()
 	queue_free()
 	
