@@ -1,11 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://cm8e8477qr6iy"]
+[gd_scene load_steps=8 format=3 uid="uid://cm8e8477qr6iy"]
 
 [ext_resource type="Script" uid="uid://ckrf57dar1yvv" path="res://scripts/MenuMananager.gd" id="1_lkg2f"]
 [ext_resource type="PackedScene" uid="uid://cnip8o524vhuu" path="res://asteroids/asteroid_generator.tscn" id="2_25n6j"]
 [ext_resource type="PackedScene" uid="uid://h5vf6tp6oya5" path="res://scenes/background.tscn" id="3_con2f"]
+[ext_resource type="Shader" uid="uid://d1o6l3jfrlexl" path="res://shaders/cromatic.gdshader" id="4_mhnvy"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_j3ehv"]
 font_size = 70
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4ytvr"]
+shader = ExtResource("4_mhnvy")
+shader_parameter/r_displacement = Vector2(1.2, 0)
+shader_parameter/g_displacement = Vector2(0, 0)
+shader_parameter/b_displacement = Vector2(-1.2, 0)
+
+[sub_resource type="Environment" id="Environment_g3eks"]
+background_mode = 3
+glow_bloom = 0.05
+glow_blend_mode = 1
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -86,6 +98,21 @@ layout_mode = 2
 text = "BY: Miguel García (Garmii)"
 
 [node name="Background" parent="." instance=ExtResource("3_con2f")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_4ytvr")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_g3eks")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
