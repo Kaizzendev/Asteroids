@@ -95,7 +95,7 @@ grow_vertical = 0
 
 [node name="Label" type="Label" parent="MarginContainer3"]
 layout_mode = 2
-text = "BY: Miguel García (Garmii)"
+text = "Made by: Kaizzendev"
 
 [node name="Background" parent="." instance=ExtResource("3_con2f")]
 

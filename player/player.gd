@@ -7,7 +7,7 @@ extends CharacterBody2D
 var direction = Vector2.ZERO
 var bullet_cap = []
 @onready var animated_sprite_2d = $AnimatedSprite2D
-const BULLET = preload("res://player/bullet.tscn")
+const BULLET = preload("res://scenes/bullet.tscn")
 const EXPLOSION = preload("res://scenes/explosion.tscn")
 enum State { Rotate, Thrust, Idle, Shoot}
 var current_state : State
