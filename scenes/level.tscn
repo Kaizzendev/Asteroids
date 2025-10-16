@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bc3gdbu5q5k11"]
+[gd_scene load_steps=13 format=3 uid="uid://bc3gdbu5q5k11"]
 
 [ext_resource type="PackedScene" uid="uid://c2wypuoxl464u" path="res://scenes/controlScore.tscn" id="1_27wjj"]
 [ext_resource type="PackedScene" uid="uid://degxe0a72myu6" path="res://player/player.tscn" id="1_t3ftg"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://h5vf6tp6oya5" path="res://scenes/background.tscn" id="5_ppgk2"]
 [ext_resource type="PackedScene" uid="uid://d4mppqdw4dp3m" path="res://ufo/ufo_generator.tscn" id="5_ygk7n"]
 [ext_resource type="Shader" uid="uid://d1o6l3jfrlexl" path="res://shaders/cromatic.gdshader" id="6_2r41h"]
+[ext_resource type="Script" uid="uid://dhx050mf3k0wh" path="res://scripts/wave_manager.gd" id="7_klq6b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_72whe"]
 size = Vector2(2509, 15.75)
@@ -36,10 +37,10 @@ glow_blend_mode = 1
 position = Vector2(573, 328)
 
 [node name="AsteroidGenerator" parent="." instance=ExtResource("2_ghntc")]
-position = Vector2(579, -91)
+position = Vector2(579, -69)
 
 [node name="AsteroidGenerator2" parent="." instance=ExtResource("2_ghntc")]
-position = Vector2(575, 719)
+position = Vector2(574, 696)
 
 [node name="Player borders" type="Node2D" parent="."]
 
@@ -135,3 +136,6 @@ metadata/_edit_use_anchors_ = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_2r41h")
+
+[node name="WaveManager" type="Node2D" parent="."]
+script = ExtResource("7_klq6b")

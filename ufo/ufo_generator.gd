@@ -13,8 +13,6 @@ func _ready():
 		await get_tree().create_timer(20).timeout
 		spawnUfo()
 
-func _process(delta):
-	pass
 	
 func loadUfos():
 	ufos.append(MINI_UFO)

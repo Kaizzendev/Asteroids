@@ -13,6 +13,8 @@ var random_x_direction: float
 var random_rotation_number : float
 var random_rotation_direction : int
 
+signal destroyed
+
 func _ready():
 	random_rotation_number = randf_range(0,1)
 	if random_rotation_number > 0.5:
@@ -20,7 +22,8 @@ func _ready():
 	elif random_rotation_number <= 0.5:
 		random_rotation_direction = -1
 	speed = randf_range(50,100)
-	rotation_speed = randf_range(0.1,0.3)
+	rotation_speed = randf_range(0.1,0.15)
+
 
 func _physics_process(delta):
 	sprite_2d.rotate(rotation_speed * random_rotation_direction)
@@ -51,13 +54,13 @@ func _on_area_2d_area_entered(area):
 func teleport_to(new_position : Vector2):
 		position = new_position
 
-
 func destroy():
 	ScoreManager.give_score_amount(score)
 	var explosion = EXPLOSION.instantiate() as Node2D
 	explosion.position = position
 	get_parent().add_child(explosion)
 	generate_child_asteroids()
+	emit_signal("destroyed", self)
 	queue_free()
 	
 	
