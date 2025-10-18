@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://ngaf2pctm2lh"]
+
+[ext_resource type="Script" uid="uid://bdmaynywjbyse" path="res://powerup/power_aim_bot.gd" id="1_0gid1"]
+[ext_resource type="Texture2D" uid="uid://dscjabc3wb858" path="res://powerup/Power_up_aim.png" id="2_0gid1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cjq0w"]
+size = Vector2(18, 18)
+
+[node name="Power aim bot" type="Node2D"]
+script = ExtResource("1_0gid1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_0gid1")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_cjq0w")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

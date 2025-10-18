@@ -46,7 +46,7 @@ animations = [{
 [node name="Player" type="CharacterBody2D"]
 texture_filter = 1
 position = Vector2(146, 67)
-collision_mask = 38
+collision_mask = 102
 motion_mode = 1
 script = ExtResource("1_kulop")
 
@@ -54,7 +54,7 @@ script = ExtResource("1_kulop")
 texture = ExtResource("2_sqe4f")
 
 [node name="Player" type="Area2D" parent="."]
-collision_mask = 14
+collision_mask = 78
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 shape = SubResource("RectangleShape2D_3ise0")

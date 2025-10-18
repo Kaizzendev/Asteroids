@@ -3,6 +3,7 @@ class_name Ufo
 var score: int = 1000
 var speed : int = 100
 const EXPLOSION = preload("res://scenes/explosion.tscn")
+
 func _ready():
 	pass
 

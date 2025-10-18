@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cji6s7jout0at"]
+
+[ext_resource type="Script" uid="uid://cwppmx57pkqv6" path="res://powerup/power_infinite_shoot.gd" id="1_e10ed"]
+[ext_resource type="Texture2D" uid="uid://mnbmn2x75d32" path="res://powerup/Power_up_infinite.png" id="2_2i76o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_caj0d"]
+size = Vector2(18, 18)
+
+[node name="Power fire rate" type="Node2D"]
+script = ExtResource("1_e10ed")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_2i76o")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_caj0d")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

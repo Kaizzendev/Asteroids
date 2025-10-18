@@ -13,6 +13,12 @@ var random_x_direction: float
 var random_rotation_number : float
 var random_rotation_direction : int
 
+const POWER_AIM_BOT = preload("res://powerup/power_aim_bot.tscn")
+const POWER_EXTRA_LIFE = preload("res://powerup/power_extra_life.tscn")
+const POWER_FIRE_RATE = preload("res://powerup/power_fire_rate.tscn")
+const POWER_TRIPLE_SHOOT = preload("res://powerup/power_triple_shoot.tscn")
+var powerups : Array[PackedScene] = [POWER_TRIPLE_SHOOT, POWER_FIRE_RATE, POWER_EXTRA_LIFE, POWER_AIM_BOT]
+
 signal destroyed
 
 func _ready():
@@ -59,8 +65,12 @@ func destroy():
 	var explosion = EXPLOSION.instantiate() as Node2D
 	explosion.position = position
 	get_parent().add_child(explosion)
+	var powerup_instance = powerups.pick_random().instantiate()
+	powerup_instance.position = global_position
+	get_parent().add_child.call_deferred(powerup_instance)
 	generate_child_asteroids()
 	emit_signal("destroyed", self)
+	
 	queue_free()
 	
 	

@@ -1,4 +1,6 @@
 extends CharacterBody2D
+class_name Player
+
 @onready var marker_2d = $Marker2D
 @onready var sprite_2d = $Sprite2D
 
@@ -13,11 +15,20 @@ enum State { Rotate, Thrust, Idle, Shoot}
 var current_state : State
 var thrust = Vector2.ZERO
 var can_shoot: bool
+var bullet_cap_size: int = 4
+var shoot_cooldown: float = 0.3
+
+@export var triple_shot_active := false
+@export var triple_spread_angle := 20.0 # grados entre las balas laterales
+
+
+var power_ups: Array[Powerup]
+
 func _ready():
 	can_shoot = true
 	current_state = State.Idle
 	ScoreManager.give_score_amount(ScoreManager.total_score)
-	
+
 func _physics_process(delta: float):
 	rotate_player(delta)
 	impulse_player(delta)
@@ -25,7 +36,7 @@ func _physics_process(delta: float):
 	
 	
 	move_and_slide()
-	
+
 func rotate_player(delta):
 	var rotation_direction = input_movement()
 	if rotation_direction:
@@ -44,24 +55,50 @@ func impulse_player(delta):
 	else:
 		animated_sprite_2d.stop()
 		animated_sprite_2d.hide()
-		
+
 func shoot():
 	if Input.is_action_just_pressed("interact") and can_shoot:
-		if(bullet_cap.size() == 4):
-			await get_tree().create_timer(0.1).timeout
+		if(bullet_cap.size() == bullet_cap_size):
+			await get_tree().create_timer(shoot_cooldown).timeout
 			bullet_cap.clear()
 		else:
 			current_state = State.Shoot
-			var bullet_instance = BULLET.instantiate() as Node2D
-			bullet_cap.append(bullet_instance)
-			var bullet_direction : Vector2 = marker_2d.global_position - global_position
-			bullet_instance.global_position = marker_2d.global_position
-			bullet_instance.direction = bullet_direction.normalized()
-			bullet_instance.speed_boost = velocity.length()
-			get_parent().add_child(bullet_instance)
 			AudioController.play_shoot_bullet()
-		
-		
+			
+			if triple_shot_active:
+				_shoot_triple()
+			else:
+				_shoot_single()
+			
+
+func _shoot_single():
+	var bullet_instance = BULLET.instantiate() as Node2D
+	bullet_cap.append(bullet_instance)
+
+	var bullet_direction: Vector2 = marker_2d.global_position - global_position
+	bullet_instance.global_position = marker_2d.global_position
+	bullet_instance.direction = bullet_direction.normalized()
+	bullet_instance.speed_boost = velocity.length()
+	get_parent().add_child(bullet_instance)
+
+
+func _shoot_triple():
+	var spread_radians = deg_to_rad(triple_spread_angle)
+	var directions = [
+		marker_2d.global_position - global_position,
+		(marker_2d.global_position - global_position).rotated(-spread_radians),
+		(marker_2d.global_position - global_position).rotated(spread_radians)
+	]
+
+	for dir in directions:
+		var bullet_instance = BULLET.instantiate() as Node2D
+		bullet_cap.append(bullet_instance)
+		bullet_instance.global_position = marker_2d.global_position
+		bullet_instance.direction = dir.normalized()
+		bullet_instance.speed_boost = velocity.length()
+		get_parent().add_child(bullet_instance)
+
+
 func input_movement() -> float: 
 	var rotation_direction: float = Input.get_axis("left","right")
 	
@@ -88,10 +125,13 @@ func _on_area_2d_area_entered(area):
 			death()
 		"Ufo":
 			death()
-			
+		"Powerup":
+			power_ups.append(area.get_parent())
+
+	
 func teleport_to(new_position : Vector2):
 		position = new_position
-		
+
 func death():
 	var explosion = EXPLOSION.instantiate() as Node2D
 	explosion.position = position
@@ -109,7 +149,3 @@ func death():
 	else:
 		GameManager.lives  -= 1
 		get_tree().change_scene_to_file("res://scenes/level.tscn")
-		
-	
-	
-	

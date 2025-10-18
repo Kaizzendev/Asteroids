@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dnbi2fwhwojtm"]
+
+[ext_resource type="Texture2D" uid="uid://c3n6ufcxlfn8c" path="res://player/ship.png" id="1_esfp2"]
+
+[node name="Life Icon" type="TextureRect"]
+size_flags_horizontal = 0
+size_flags_vertical = 8
+texture = ExtResource("1_esfp2")

@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://baf3nmrc58b0l"]
+
+[ext_resource type="Script" uid="uid://bbhplg7h2gh2v" path="res://powerup/power_triple_shoot.gd" id="1_bjdox"]
+[ext_resource type="Texture2D" uid="uid://dn1wwe7l6rlci" path="res://powerup/Power_up_triple.png" id="2_f4j2m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m8wid"]
+size = Vector2(18, 18)
+
+[node name="power triple shoot" type="Node2D"]
+script = ExtResource("1_bjdox")
+duration = null
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_f4j2m")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_m8wid")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

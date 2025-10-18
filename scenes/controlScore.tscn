@@ -1,7 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2wypuoxl464u"]
+[gd_scene load_steps=2 format=3 uid="uid://c2wypuoxl464u"]
 
 [ext_resource type="Script" uid="uid://c4cq5evmiip7k" path="res://scripts/controlScore.gd" id="1_u6eou"]
-[ext_resource type="Texture2D" uid="uid://c3n6ufcxlfn8c" path="res://player/ship.png" id="2_h4k63"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -31,21 +30,3 @@ text = "Score"
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 8
-texture = ExtResource("2_h4k63")
-
-[node name="TextureRect2" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 8
-texture = ExtResource("2_h4k63")
-
-[node name="TextureRect3" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 8
-texture = ExtResource("2_h4k63")

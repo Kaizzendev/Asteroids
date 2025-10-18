@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c85saytf0cklk"]
+
+[ext_resource type="Script" uid="uid://bm2ymicxuj2y0" path="res://powerup/power_extra_life.gd" id="1_w4ucp"]
+[ext_resource type="Texture2D" uid="uid://d2t4p1k204vy0" path="res://powerup/Power_up_life.png" id="2_lg2mg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_40if6"]
+size = Vector2(18, 18)
+
+[node name="Power extra life" type="Node2D"]
+script = ExtResource("1_w4ucp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_lg2mg")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_40if6")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
