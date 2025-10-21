@@ -19,8 +19,7 @@ var bullet_cap_size: int = 4
 var shoot_cooldown: float = 0.3
 
 @export var triple_shot_active := false
-@export var triple_spread_angle := 20.0 # grados entre las balas laterales
-
+@export var triple_spread_angle := 20.0 
 
 var power_ups: Array[Powerup]
 
@@ -64,12 +63,10 @@ func shoot():
 		else:
 			current_state = State.Shoot
 			AudioController.play_shoot_bullet()
-			
 			if triple_shot_active:
 				_shoot_triple()
 			else:
 				_shoot_single()
-			
 
 func _shoot_single():
 	var bullet_instance = BULLET.instantiate() as Node2D
@@ -80,7 +77,6 @@ func _shoot_single():
 	bullet_instance.direction = bullet_direction.normalized()
 	bullet_instance.speed_boost = velocity.length()
 	get_parent().add_child(bullet_instance)
-
 
 func _shoot_triple():
 	var spread_radians = deg_to_rad(triple_spread_angle)
@@ -96,8 +92,8 @@ func _shoot_triple():
 		bullet_instance.global_position = marker_2d.global_position
 		bullet_instance.direction = dir.normalized()
 		bullet_instance.speed_boost = velocity.length()
+		bullet_instance.modulate = Color.RED
 		get_parent().add_child(bullet_instance)
-
 
 func input_movement() -> float: 
 	var rotation_direction: float = Input.get_axis("left","right")
@@ -128,7 +124,6 @@ func _on_area_2d_area_entered(area):
 		"Powerup":
 			power_ups.append(area.get_parent())
 
-	
 func teleport_to(new_position : Vector2):
 		position = new_position
 

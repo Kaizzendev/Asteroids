@@ -2,7 +2,6 @@ extends Powerup
 
 const SHIELD = preload("res://powerup/shield.tscn")
 
-
 func use_powerup(player: Player):
 	super(player)
 	duration = 10

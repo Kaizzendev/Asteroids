@@ -13,12 +13,11 @@ var random_x_direction: float
 var random_rotation_number : float
 var random_rotation_direction : int
 
-const POWER_AIM_BOT = preload("res://powerup/power_aim_bot.tscn")
 const POWER_EXTRA_LIFE = preload("res://powerup/power_extra_life.tscn")
 const POWER_FIRE_RATE = preload("res://powerup/power_fire_rate.tscn")
 const POWER_TRIPLE_SHOOT = preload("res://powerup/power_triple_shoot.tscn")
 const POWER_SHIELD = preload("res://powerup/power_shield.tscn")
-var powerups : Array[PackedScene] = [POWER_TRIPLE_SHOOT, POWER_FIRE_RATE, POWER_EXTRA_LIFE, POWER_AIM_BOT, POWER_SHIELD]
+var powerups : Array[PackedScene] = [POWER_TRIPLE_SHOOT, POWER_FIRE_RATE, POWER_EXTRA_LIFE, POWER_SHIELD]
 
 
 signal destroyed

@@ -10,6 +10,7 @@ size = Vector2(18, 18)
 script = ExtResource("1_w4ucp")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 1, 0, 1)
 texture = ExtResource("2_lg2mg")
 
 [node name="Area2D" type="Area2D" parent="."]
