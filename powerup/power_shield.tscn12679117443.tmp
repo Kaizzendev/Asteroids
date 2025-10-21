@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://2flptpr8e001"]
+
+[ext_resource type="Script" uid="uid://b6d3q0ntsylea" path="res://powerup/power_shield.gd" id="1_vekku"]
+[ext_resource type="Texture2D" uid="uid://cfivqxkqpeiqk" path="res://powerup/Power_up_shield.png" id="2_7kfw8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cjq0w"]
+size = Vector2(18, 18)
+
+[node name="Power shield" type="Node2D"]
+script = ExtResource("1_vekku")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_7kfw8")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_cjq0w")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -31,7 +31,7 @@ func death(byPlayer : bool):
 	super(byPlayer)
 
 func _on_ufo_area_entered(area):
-	if area.name == "Bullet":
+	if area.name == "Bullet" or area.name == "Shield":
 		death(true)
 	else:
 		death(false)

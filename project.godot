@@ -62,6 +62,7 @@ pause={
 2d_physics/layer_5="ASTEROIDS BORDER"
 2d_physics/layer_6="UFO"
 2d_physics/layer_7="POWERUP"
+2d_physics/layer_8="SHIELD"
 
 [rendering]
 

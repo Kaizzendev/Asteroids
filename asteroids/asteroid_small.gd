@@ -5,6 +5,6 @@ func _ready():
 	current_type = Type.Med
 	score = 300
 
-func destroy():
+func destroy(childs: bool):
 	AudioController.play_small_crash()
-	super()
+	super(childs)

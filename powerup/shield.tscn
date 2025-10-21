@@ -1,0 +1,69 @@
+[gd_scene load_steps=4 format=3 uid="uid://dq3qckq58xgca"]
+
+[ext_resource type="Script" uid="uid://b6r7koatda3up" path="res://powerup/shield.gd" id="1_jkxel"]
+[ext_resource type="Texture2D" uid="uid://hlqxa6cpycow" path="res://scenes/bullet.png" id="2_d5akg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tnewv"]
+size = Vector2(14, 14)
+
+[node name="Shield" type="Node2D"]
+script = ExtResource("1_jkxel")
+speed = 3.0
+
+[node name="Orbit" type="Node2D" parent="."]
+
+[node name="R1" type="Node2D" parent="Orbit"]
+
+[node name="R1 sprite" type="Sprite2D" parent="Orbit/R1"]
+position = Vector2(40, 0)
+texture = ExtResource("2_d5akg")
+
+[node name="Shield" type="Area2D" parent="Orbit/R1"]
+collision_layer = 128
+collision_mask = 34
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Orbit/R1/Shield"]
+position = Vector2(40, 0)
+shape = SubResource("RectangleShape2D_tnewv")
+
+[node name="R2" type="Node2D" parent="Orbit"]
+
+[node name="R2 sprite" type="Sprite2D" parent="Orbit/R2"]
+position = Vector2(-40, 0)
+texture = ExtResource("2_d5akg")
+
+[node name="Shield" type="Area2D" parent="Orbit/R2"]
+collision_layer = 128
+collision_mask = 34
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Orbit/R2/Shield"]
+position = Vector2(-40, 0)
+shape = SubResource("RectangleShape2D_tnewv")
+
+[node name="R3" type="Node2D" parent="Orbit"]
+
+[node name="R2 sprite2" type="Sprite2D" parent="Orbit/R3"]
+position = Vector2(0, 40)
+texture = ExtResource("2_d5akg")
+
+[node name="Shield" type="Area2D" parent="Orbit/R3"]
+collision_layer = 128
+collision_mask = 34
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Orbit/R3/Shield"]
+position = Vector2(0, 40)
+shape = SubResource("RectangleShape2D_tnewv")
+
+[node name="R4" type="Node2D" parent="Orbit"]
+
+[node name="R2 sprite3" type="Sprite2D" parent="Orbit/R4"]
+position = Vector2(0, -40)
+texture = ExtResource("2_d5akg")
+
+[node name="Shield" type="Area2D" parent="Orbit/R4"]
+collision_layer = 128
+collision_mask = 34
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Orbit/R4/Shield"]
+position = Vector2(0, -40)
+shape = SubResource("RectangleShape2D_tnewv")
