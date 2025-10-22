@@ -9,6 +9,10 @@ extends Node2D
 @onready var mini_ufo = $MiniUfo
 @onready var die_ufo =  $DieUfo
 @onready var player_die = $PlayerDie
+@onready var space = $Space
+
+func _ready():
+	space.play()
 
 func play_big_crash():
 	crash_1.play() 
