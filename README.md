@@ -9,7 +9,7 @@ This project is part of my personal portfolio, showcasing skills in:
 - **Shader** and material creation
 - **UI and visual feedback** design
 - **Scene organization**, signals, and 2D physics management
-
+- **Music**, simple background audio
 ---
 
 ### 🖼️ Screenshots / GIFs
@@ -21,7 +21,7 @@ This project is part of my personal portfolio, showcasing skills in:
 
 ### 🎮 Main Features
 - ✨ **Custom shaders** (distortion, explosion, transition, and post-processing effects)  
-- ⚡ **Randomized power-ups** (speed boost, shield, fire rate, etc.)  
+- ⚡ **Randomized power-ups** (triple shoot, shield, etc.)  
 - 🎵 **Reactive audio** and spatial sound effects  
 - 🧩 **Clean, commented, reusable code** following Godot’s best practices  
 
@@ -37,4 +37,4 @@ This project is part of my personal portfolio, showcasing skills in:
 
 ### 🕹️ Play on Itch.io
 You can play the latest version directly on Itch.io:  
-👉 [**Asteroids Reimagined on Itch.io**](https://kaizzendev.itch.io/asteroids)
+👉 [**Asteroids Reimagined on Itch.io**](https://kaizzendev.itch.io/asteroidsplus)
