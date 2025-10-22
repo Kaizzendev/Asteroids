@@ -53,3 +53,5 @@ volume_db = -17.802
 
 [node name="Space" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("11_acs82")
+volume_db = -20.59
+max_polyphony = 3
