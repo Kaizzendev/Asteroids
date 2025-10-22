@@ -1,4 +1,4 @@
-# 🪐 Asteroids Reimagined (Godot4.x)
+# 🪐 Asteroids+ (Godot4.x)
 
 ### 🚀 Description
 A modern reimagining of the classic **Asteroids**, built with **Godot Engine 4.x**.  

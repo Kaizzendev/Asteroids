@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://cgufcylut0u6j"]
+[gd_scene load_steps=2 format=3 uid="uid://cgvdlgistlaj3"]
 
-[ext_resource type="Script" uid="uid://drxoje68wf0lp" path="res://scripts/options_menu.gd" id="1_d8hgq"]
+[sub_resource type="GDScript" id="GDScript_veqh5"]
+script/source = "extends Control
+
+
+
+func _on_back_pressed():
+		get_tree().change_scene_to_file(\"res://scenes/menu.tscn\")
+"
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -9,7 +16,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_d8hgq")
+script = SubResource("GDScript_veqh5")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(200, 0)

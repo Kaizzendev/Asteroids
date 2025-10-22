@@ -9,6 +9,8 @@ size = Vector2(18, 18)
 [node name="power triple shoot" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_bjdox")
+duration = 12
+despawn_duration = 10
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 0, 0, 1)

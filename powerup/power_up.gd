@@ -4,8 +4,8 @@ class_name Powerup
 @onready var sprite_2d = $Sprite2D
 
 @export var duration: int
-@export var despawn_duration: int = 6
-@export var flash_duration: float = 1.0
+@export var despawn_duration: int = 10
+@export var flash_duration: float = 2.0
 @export var flash_interval: float = 0.1
 
 var picked: bool = false

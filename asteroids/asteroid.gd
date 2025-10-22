@@ -68,15 +68,19 @@ func destroy(childs: bool):
 	var explosion = EXPLOSION.instantiate() as Node2D
 	explosion.position = position
 	get_parent().add_child(explosion)
-	var powerup_instance = powerups.pick_random().instantiate()
-	powerup_instance.position = global_position
-	get_parent().add_child.call_deferred(powerup_instance)
+	var random = randf_range(0,1)
+	if random < 0.1:
+		generate_powerup()
 	if childs:
 		generate_child_asteroids()
 	emit_signal("destroyed", self)
 	
 	queue_free()
 	
+func generate_powerup():
+	var powerup_instance = powerups.pick_random().instantiate()
+	powerup_instance.position = global_position
+	get_parent().add_child.call_deferred(powerup_instance)
 	
 func generate_child_asteroids():
 	pass
